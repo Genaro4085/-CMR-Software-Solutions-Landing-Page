@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Solicitar asesoramiento | CMR Software Solutions</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="main.js" defer></script>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    </head>
+    <body class="page-asesoramiento">
+        <header>
+            <nav>
+                <a href="index.html" class="logo-link" aria-label="CMR Software Solutions — inicio">
+                    <img src="IMG/logo2.png" alt="CMR logo" class="logo">
+                </a>
+                <ul>
+                    <li><a href="index.html"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver al sitio</a></li>
+                    <li><a href="index.html#servicios">Servicios</a></li>
+                    <li><a href="index.html#proyectos">Proyectos</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section id="asesoramiento" class="asesoramiento asesoramiento--page" aria-labelledby="asesoramiento-heading">
+                <div class="asesoramiento-envoltura">
+                    <header class="asesoramiento-head">
+                        <h2 class="tag-asesoramiento">Antes de la reunión</h2>
+                        <h3 id="asesoramiento-heading">Solicitá asesoramiento</h3>
+                        <p class="asesoramiento-lead">Completá lo que puedas: nos ayuda a entender tu contexto y llegar a la entrevista con ideas y preguntas más concretas. No hace falta que seas técnico.</p>
+                    </header>
+
+                    <form id="form-asesoramiento" class="asesoramiento-form" novalidate>
+                        <div class="form-grid">
+                            <div class="form-field form-field--full">
+                                <label for="fa-nombre">Nombre y apellido <span class="req">*</span></label>
+                                <span class="form-input-shell"><input type="text" id="fa-nombre" name="nombre" required autocomplete="name" placeholder="Cómo te llamamos"></span>
+                            </div>
+
+                            <div class="form-field">
+                                <label for="fa-empresa">Empresa u organización</label>
+                                <span class="form-input-shell"><input type="text" id="fa-empresa" name="empresa" autocomplete="organization" placeholder="Nombre comercial o razón social"></span>
+                            </div>
+
+                            <div class="form-field">
+                                <label for="fa-rubro">Rubro o actividad</label>
+                                <span class="form-input-shell"><input type="text" id="fa-rubro" name="rubro" placeholder="Ej.: retail, salud, logística…"></span>
+                            </div>
+
+                            <div class="form-field">
+                                <label for="fa-email">Correo electrónico <span class="req">*</span></label>
+                                <span class="form-input-shell"><input type="email" id="fa-email" name="email" required autocomplete="email" placeholder="nombre@empresa.com"></span>
+                            </div>
+
+                            <div class="form-field">
+                                <label for="fa-telefono">Teléfono o WhatsApp</label>
+                                <span class="form-input-shell"><input type="tel" id="fa-telefono" name="telefono" autocomplete="tel" placeholder="Código de área + número"></span>
+                            </div>
+
+                            <fieldset class="form-field form-field--full form-fieldset">
+                                <legend>¿Qué tipo de necesidad tenés? <span class="req">*</span> <span class="legend-hint">(podés marcar varias)</span></legend>
+                                <div class="form-check-grid">
+                                    <label class="form-check"><input type="checkbox" name="necesidad" value="Sistema o desarrollo a medida"> Sistema o desarrollo a medida</label>
+                                    <label class="form-check"><input type="checkbox" name="necesidad" value="Automatizar procesos o tareas repetitivas"> Automatizar procesos o tareas repetitivas</label>
+                                    <label class="form-check"><input type="checkbox" name="necesidad" value="Integrar herramientas o sistemas existentes"> Integrar herramientas o sistemas existentes</label>
+                                    <label class="form-check"><input type="checkbox" name="necesidad" value="Mejorar o reemplazar un sistema actual"> Mejorar o reemplazar un sistema actual</label>
+                                    <label class="form-check"><input type="checkbox" name="necesidad" value="Todavía no lo tengo claro / quiero orientación"> Todavía no lo tengo claro / quiero orientación</label>
+                                </div>
+                            </fieldset>
+
+                            <div class="form-field form-field--full">
+                                <label for="fa-hoy">¿Cómo trabajan hoy?</label>
+                                <span class="form-input-shell"><textarea id="fa-hoy" name="como_trabajan" rows="3" placeholder="Ej.: planillas Excel, otro software, papel, varias personas…"></textarea></span>
+                            </div>
+
+                            <div class="form-field form-field--full">
+                                <label for="fa-problema">Principal problema u objetivo <span class="req">*</span></label>
+                                <span class="form-input-shell"><textarea id="fa-problema" name="problema_objetivo" required rows="4" placeholder="Qué querés resolver o lograr con este proyecto"></textarea></span>
+                            </div>
+
+                            <div class="form-field">
+                                <label for="fa-usuarios">¿Cuántas personas lo usarían (aprox.)?</label>
+                                <span class="form-input-shell"><select id="fa-usuarios" name="usuarios">
+                                    <option value="">Elegí una opción</option>
+                                    <option value="1 persona">1 persona</option>
+                                    <option value="2 a 5">2 a 5</option>
+                                    <option value="6 a 20">6 a 20</option>
+                                    <option value="Más de 20">Más de 20</option>
+                                    <option value="Aún no lo sé">Aún no lo sé</option>
+                                </select></span>
+                            </div>
+
+                            <div class="form-field">
+                                <label for="fa-plazo">Plazo o urgencia</label>
+                                <span class="form-input-shell"><select id="fa-plazo" name="plazo">
+                                    <option value="">Elegí una opción</option>
+                                    <option value="Lo antes posible">Lo antes posible</option>
+                                    <option value="En 1 a 3 meses">En 1 a 3 meses</option>
+                                    <option value="En 3 a 6 meses">En 3 a 6 meses</option>
+                                    <option value="Sin fecha fija / explorando">Sin fecha fija / explorando</option>
+                                </select></span>
+                            </div>
+
+                            <div class="form-field form-field--full">
+                                <label for="fa-presupuesto">Inversión orientativa (opcional)</label>
+                                <span class="form-input-shell"><select id="fa-presupuesto" name="presupuesto">
+                                    <option value="">Prefiero charlarlo en la reunión</option>
+                                    <option value="Menor escala / proyecto acotado">Menor escala / proyecto acotado</option>
+                                    <option value="Escala media">Escala media</option>
+                                    <option value="Proyecto amplio o varias etapas">Proyecto amplio o varias etapas</option>
+                                    <option value="No aplica / solo consulta">No aplica / solo consulta</option>
+                                </select></span>
+                            </div>
+
+                            <div class="form-field form-field--full">
+                                <label for="fa-extra">Algo más que debamos saber antes de la entrevista</label>
+                                <span class="form-input-shell"><textarea id="fa-extra" name="extra" rows="3" placeholder="Integraciones, normativas, fechas clave, referencias…"></textarea></span>
+                            </div>
+                        </div>
+
+                        <p class="form-privacy">Al enviar se abrirá tu correo con el mensaje listo. Si preferís, podés escribirnos directo a <strong>cmrsoftware.sn@gmail.com</strong> o por WhatsApp.</p>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn-primary">Enviar solicitud por correo</button>
+                            <a href="index.html" class="btn-form-secondary">Volver al inicio</a>
+                        </div>
+                        <p id="form-asesoramiento-error" class="form-error" role="alert" hidden></p>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <footer id="footer">
+            <div class="footer-container">
+
+                <div class="footer-col">
+                    <h3><a href="index.html" class="logo-link"><img src="IMG/logo2.png" width="300" alt="CMR Software Solutions"></a></h3>
+                    <p class="footer-descripcion">En CMR creamos software a medida que simplifica procesos, mejora la productividad y acompaña el crecimiento de cada negocio.</p>
+                    <p class="footer-mini">• Hecho en Argentina • Soluciones a medida • Tecnología moderna</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Enlaces</h4>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="index.html#servicios">Servicios</a></li>
+                        <li><a href="index.html#proyectos">Proyectos</a></li>
+                        <li><a href="index.html#sobre-nosotros">Sobre Nosotros</a></li>
+                        <li><a href="asesoramiento.html">Contacto</a></li>
+                        <li><button type="button" class="btn-nav js-scroll-form">Solicitar Acesoramiento</button></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    <p>Email: cmrsoftware.sn@gmail.com</p>
+                    <p>Whatsapp: <a href="https://wa.me/5493364578599?text=Hola%20CMR%2C%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20sus%20servicios." target="_blank" rel="noopener noreferrer">+54 9 336 457-8599</a></p>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 CMR Software Solutions - Todos los derechos reservados</p>
+            </div>
+        </footer>
+    </body>
+</html>

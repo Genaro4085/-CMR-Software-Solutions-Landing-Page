@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CMR Software Solutions</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="main.js" defer></script>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    </head>
+        <body>
+            <header>
+                <!-- El headear es la navegacion -->    
+                <!-- NAVBAR -->
+                <nav>
+                        <img src="IMG/logo2.png" alt="CMR logo" class="logo">
+
+                    <ul>
+                        <li><a href="#hero">Inicio</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#proyectos">Proyectos</a></li>
+                        <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+                        <li><a href="#footer">Contacto</a></li>
+                        <li><button type="button" class="btn-nav js-goto-asesoramiento">Solicitar Acesoramiento</button></li>
+                    </ul>
+                </nav>
+                
+                
+            </header>
+
+                <!-- HERO -->
+                <section id="hero">
+                    <!-- En el section esta el contenido -->
+                    <div class="container">
+                        <div class="hero-texto">
+                            
+                            <p class="tag">CMR Software Solutions</p>
+
+                            <h1>Desarrollamos software a medidad para 
+                                <span class="texto-degradado">potenciar tu negocio.</span>
+                            </h1>
+
+                            <p>Creamos soluciones tecnologicas modernas, escalables y eficientes que automatizan procesos y generan resultados.</p>  
+
+                            <button type="button" class="btn-primary js-goto-asesoramiento">Solicitar Acesoramiento</button>
+                            <button type="button" class="btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> Hablar por Whatsapp</button>
+
+                        </div>
+
+                        <div class="hero-img"> <!-- Acá va la imagen -->
+                            <img src="IMG/Pantalla.png" alt="Sistema de gestion">
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <section id="problema">
+
+                    <div class="problema-envolvente"> <!-- Es para envolver todo y que puedan quedar uno al lado del otro, texto y cards -->    
+                        
+                        <div class="problema-texto">
+                            <div class="problema-intro-card">
+                                <h2 class="tag-problem">El problema</h2>
+                                <h3 class="problema-intro-title">¿Te suena <span class="problema-highlight">familiar?</span></h3>
+                                <p class="problema-intro-desc">Muchos negocios pierden tiempo y recursos por procesos manuales o sistemas desactualizados.</p>
+                            </div>
+                        </div>    
+                                
+                        <div class="problema-container"> <!-- lado derecho -->
+
+                            <div class="problema-item">
+                                <i class="fa-solid fa-clock icono-problema"></i>
+                                <div>
+                                    <h4>Tareas repetidas</h4>
+                                    <p>Que consumen tiempo valioso</p>
+                                </div>
+                            </div>
+                            
+                            <div class="problema-item">
+                                <i class="fa-solid fa-file-excel icono-excel"></i>
+                                <div>
+                                    <h4>Información dispersa</h4>
+                                    <p>En Excel o sistemas poco eficientes</p>
+                                </div>    
+                            </div>
+
+                            <div class="problema-item">
+                                <i class="fa-solid fa-chart-column icono-problema"></i>
+                                <div>
+                                    <h4>Falta de control</h4>
+                                    <p>En los datos para tomar decisiones</p>
+                                </div>    
+                            </div>
+                            
+                        </div>
+                    </div>    
+        
+                </section>
+
+                <section id="servicios">
+                    <div class="servicios-envoltura">
+                        <header class="servicios-head">
+                            <h2 class="tag-servicios">Nuestra solución</h2>
+                            <h3 class="servicios-title">Construimos la tecnología que <span class="servicios-gradient">tu negocio necesita</span></h3>
+                            <p class="servicios-lead">Software pensado para crecer con vos: a medida, automatizado y conectado.</p>
+                        </header>
+
+                        <div class="servicios-container">
+
+                            <article class="servicios-item">
+                                <div class="servicios-item-icon" aria-hidden="true">
+                                    <i class="fa-solid fa-laptop-code"></i>
+                                </div>
+                                <h4>Desarrollo a medida</h4>
+                                <p>Sistemas personalizados que se adaptan a tu operación día a día.</p>
+                            </article>
+
+                            <article class="servicios-item">
+                                <div class="servicios-item-icon" aria-hidden="true">
+                                    <i class="fa-solid fa-gears"></i>
+                                </div>
+                                <h4>Automatización</h4>
+                                <p>Menos tareas repetitivas, más tiempo para lo que realmente importa.</p>
+                            </article>
+
+                            <article class="servicios-item">
+                                <div class="servicios-item-icon" aria-hidden="true">
+                                    <i class="fa-solid fa-plug"></i>
+                                </div>
+                                <h4>Integraciones</h4>
+                                <p>Unimos tus herramientas para que la información fluya en un solo lugar.</p>
+                            </article>
+
+                        </div>
+                    </div>
+                </section>
+
+                <section id="proyectos" aria-labelledby="proyectos-heading">
+                    <div class="proyectos-envoltura">
+                        <header class="proyectos-head">
+                            <h2 class="tag-proyectos">Proyectos</h2>
+                            <h3 id="proyectos-heading" class="proyectos-title">Casos que <span class="proyectos-gradient">llevamos adelante</span></h3>
+                            <p class="proyectos-lead">Desarrollos a medida que ya están operando junto a nuestros clientes. Podés sumar el tuyo cuando quieras.</p>
+                            <p class="proyectos-aviso-capturas" role="note"><i class="fa-solid fa-hand-pointer" aria-hidden="true"></i> <span>Click en la imagen para ampliar</span></p>
+                        </header>
+
+                        <div class="proyectos-showcase-container">
+                            <article class="proyecto-card proyecto-showcase" id="proyecto-showcase">
+                                <nav class="proyecto-tabs" role="tablist" aria-label="Elegí un proyecto o deslizá la galería continua">
+                                    <button type="button" class="proyecto-tab is-active" role="tab" aria-selected="true" aria-controls="proyecto-galeria-continua" id="proyecto-tab-ferreteria" data-proyecto-index="0">Sistema ferretería</button>
+                                    <button type="button" class="proyecto-tab" role="tab" aria-selected="false" aria-controls="proyecto-galeria-continua" id="proyecto-tab-joby" tabindex="-1" data-proyecto-index="1">Joby</button>
+                                    <button type="button" class="proyecto-tab" role="tab" aria-selected="false" aria-controls="proyecto-galeria-continua" id="proyecto-tab-turnos" tabindex="-1" data-proyecto-index="2">Turnos médicos</button>
+                                </nav>
+
+                                <div class="proyecto-gallery-unified">
+                                    <div class="proyecto-media proyecto-carousel js-proyecto-carousel-continuo" id="proyecto-carousel-continuo">
+                                        <div class="proyecto-coverflow-stage proyecto-ring-stage" id="proyecto-galeria-continua" aria-roledescription="carrusel" aria-label="Galería continua: ferretería, Joby y turnos médicos">
+                                            <div class="proyecto-ring-viewport">
+                                                <div class="proyecto-ring-track">
+                                                    <figure class="proyecto-ring-face proyecto-coverflow-slide proyecto-coverflow-portada" data-proyecto="0" aria-label="Portada: sistema ferretería">
+                                                        <div class="proyecto-portada-inner">
+                                                            <span class="proyecto-portada-eyebrow">Proyecto</span>
+                                                            <span class="proyecto-portada-titulo">Sistema ferretería</span>
+                                                            <span class="proyecto-portada-meta">Retail · Ferretería</span>
+                                                        </div>
+                                                    </figure>
+                                                    <figure class="proyecto-ring-face proyecto-coverflow-slide" data-proyecto="0" aria-label="Ferretería, vista 1">
+                                                        <img src="IMG/proyectos/SISTEMA FERRETERIA/Captura de pantalla 2026-04-15 202739.png" alt="Sistema ferretería — pantalla 1" loading="lazy" decoding="async">
+                                                    </figure>
+                                                    <figure class="proyecto-ring-face proyecto-coverflow-slide" data-proyecto="0" aria-label="Ferretería, vista 2">
+                                                        <img src="IMG/proyectos/SISTEMA FERRETERIA/Captura de pantalla 2026-04-15 202751.png" alt="Sistema ferretería — pantalla 2" loading="lazy" decoding="async">
+                                                    </figure>
+                                                    <figure class="proyecto-ring-face proyecto-coverflow-slide" data-proyecto="0" aria-label="Ferretería, vista 3">
+                                                        <img src="IMG/proyectos/SISTEMA FERRETERIA/Captura de pantalla 2026-04-15 202856.png" alt="Sistema ferretería — pantalla 3" loading="lazy" decoding="async">
+                                                    </figure>
+                                                    <figure class="proyecto-ring-face proyecto-coverflow-slide proyecto-coverflow-portada" data-proyecto="1" aria-label="Portada: Joby">
+                                                        <div class="proyecto-portada-inner">
+                                                            <span class="proyecto-portada-eyebrow">Proyecto</span>
+                                                            <span class="proyecto-portada-titulo">Joby</span>
+                                                            <span class="proyecto-portada-meta">App móvil · Servicios</span>
+                                                        </div>
+                                                    </figure>
+                                                    <figure class="proyecto-ring-face proyecto-coverflow-slide" data-proyecto="1" aria-label="Joby, vista 1">
+                                                        <img src="IMG/proyectos/APP%20JOBY/WhatsApp%20Image%202026-04-18%20at%2014.45.59%20(1).jpeg" alt="Joby — pantalla 1" loading="lazy" decoding="async">
+                                                    </figure>
+                                                    <figure class="proyecto-ring-face proyecto-coverflow-slide" data-proyecto="1" aria-label="Joby, vista 2">
+                                                        <img src="IMG/proyectos/APP%20JOBY/WhatsApp%20Image%202026-04-18%20at%2014.45.59%20(2).jpeg" alt="Joby — pantalla 2" loading="lazy" decoding="async">
+                                                    </figure>
+                                                    <figure class="proyecto-ring-face proyecto-coverflow-slide" data-proyecto="1" aria-label="Joby, vista 3">
+                                                        <img src="IMG/proyectos/APP%20JOBY/WhatsApp%20Image%202026-04-18%20at%2014.46.00%20(1).jpeg" alt="Joby — pantalla 3" loading="lazy" decoding="async">
+                                                    </figure>
+                                                    <figure class="proyecto-ring-face proyecto-coverflow-slide" data-proyecto="1" aria-label="Joby, vista 4">
+                                                        <img src="IMG/proyectos/APP%20JOBY/WhatsApp%20Image%202026-04-18%20at%2014.46.00.jpeg" alt="Joby — pantalla 4" loading="lazy" decoding="async">
+                                                    </figure>
+                                                    <figure class="proyecto-ring-face proyecto-coverflow-slide" data-proyecto="1" aria-label="Joby, vista 5">
+                                                        <img src="IMG/proyectos/APP%20JOBY/WhatsApp%20Image%202026-04-18%20at%2014.46.01%20(1).jpeg" alt="Joby — pantalla 5" loading="lazy" decoding="async">
+                                                    </figure>
+                                                    <figure class="proyecto-ring-face proyecto-coverflow-slide" data-proyecto="1" aria-label="Joby, vista 6">
+                                                        <img src="IMG/proyectos/APP%20JOBY/WhatsApp%20Image%202026-04-18%20at%2014.46.01.jpeg" alt="Joby — pantalla 6" loading="lazy" decoding="async">
+                                                    </figure>
+                                                    <figure class="proyecto-ring-face proyecto-coverflow-slide" data-proyecto="1" aria-label="Joby, vista 7">
+                                                        <img src="IMG/proyectos/APP%20JOBY/WhatsApp%20Image%202026-04-18%20at%2014.46.02.jpeg" alt="Joby — pantalla 7" loading="lazy" decoding="async">
+                                                    </figure>
+                                                    <figure class="proyecto-ring-face proyecto-coverflow-slide proyecto-coverflow-portada" data-proyecto="2" aria-label="Portada: turnos médicos">
+                                                        <div class="proyecto-portada-inner">
+                                                            <span class="proyecto-portada-eyebrow">Proyecto</span>
+                                                            <span class="proyecto-portada-titulo">Turnos médicos</span>
+                                                            <span class="proyecto-portada-meta">Salud · Turnos</span>
+                                                        </div>
+                                                    </figure>
+                                                    <figure class="proyecto-ring-face proyecto-coverflow-slide" data-proyecto="2" aria-label="Turnos médicos, vista 1">
+                                                        <img src="IMG/proyectos/SISTEMA TURNOS MEDICOS/Captura de pantalla 2026-04-15 202258.png" alt="Sistema turnos médicos — pantalla 1" loading="lazy" decoding="async">
+                                                    </figure>
+                                                    <figure class="proyecto-ring-face proyecto-coverflow-slide" data-proyecto="2" aria-label="Turnos médicos, vista 2">
+                                                        <img src="IMG/proyectos/SISTEMA TURNOS MEDICOS/Captura de pantalla 2026-04-15 202452.png" alt="Sistema turnos médicos — pantalla 2" loading="lazy" decoding="async">
+                                                    </figure>
+                                                    <figure class="proyecto-ring-face proyecto-coverflow-slide" data-proyecto="2" aria-label="Turnos médicos, vista 3">
+                                                        <img src="IMG/proyectos/SISTEMA TURNOS MEDICOS/Captura de pantalla 2026-04-15 202547.png" alt="Sistema turnos médicos — pantalla 3" loading="lazy" decoding="async">
+                                                    </figure>
+                                                </div>
+                                            </div>
+                                            <p class="proyecto-coverflow-hint"><i class="fa-solid fa-rotate" aria-hidden="true"></i> Girá el cilindro con las flechas, la rueda o un desliz horizontal</p>
+                                        </div>
+                                        <div class="carousel-3d-controls proyecto-ring-controls" role="group" aria-label="Navegación de la galería de capturas">
+                                            <button type="button" class="carousel-3d-btn carousel-3d-prev" aria-label="Captura anterior"><span class="carousel-3d-btn-glyph" aria-hidden="true"><i class="fa-solid fa-chevron-left"></i></span><span class="carousel-3d-btn-text">Anterior</span></button>
+                                            <div class="proyecto-ring-controls-mid">
+                                                <div class="carousel-3d-dots proyecto-ring-dots" aria-label="Ir a una captura"></div>
+                                                <span class="proyecto-ring-progress" aria-live="polite"></span>
+                                            </div>
+                                            <button type="button" class="carousel-3d-btn carousel-3d-next" aria-label="Captura siguiente"><span class="carousel-3d-btn-text">Siguiente</span><span class="carousel-3d-btn-glyph" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></span></button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="proyecto-desc-unified" aria-live="polite">
+                                    <div class="proyecto-desc-panel is-active" id="proyecto-desc-ferreteria" role="region" aria-label="Detalle: sistema ferretería">
+                                        <span class="proyecto-categoria">Retail · Ferretería</span>
+                                        <h4>Sistema ferretería</h4>
+                                        <p class="proyecto-resumen"><strong>Lo que hicimos:</strong> desarrollamos el flujo de venta en mostrador con búsqueda por rubro y código, emisión de comprobantes y cierre de caja. Incluye listas de precios por lista y reportes de ventas para el día y el mes.</p>
+                                        <p class="proyecto-relato">Solución operativa orientada al vendedor de mostrador: digitaliza y estandariza el circuito de ventas, sustituyendo el registro disperso en papel o planillas auxiliares por la carga sistemática de las operaciones del día. Incorpora clasificación y trazabilidad de medios de pago (efectivo, tarjeta de débito o crédito y condiciones acordadas de cuenta corriente), facilita el arqueo y el cierre de caja y aporta evidencia documental por comprobante para control interno, conciliación y auditoría básica.</p>
+                                    </div>
+                                    <div class="proyecto-desc-panel" id="proyecto-desc-joby" role="region" aria-label="Detalle: Joby" hidden>
+                                        <span class="proyecto-categoria">App móvil · Servicios</span>
+                                        <h4>Joby</h4>
+                                        <p class="proyecto-resumen">Joby es una aplicación móvil que conecta personas que necesitan servicios con trabajadores independientes de distintos rubros, de forma rápida, simple y segura.</p>
+                                        <p class="proyecto-relato">Permite buscar profesionales por ubicación, ver perfiles con valoraciones y contratar con mayor confianza, mientras que a los trabajadores les brinda visibilidad, más oportunidades laborales y herramientas para mejorar su reputación y crecimiento.</p>
+                                    </div>
+                                    <div class="proyecto-desc-panel" id="proyecto-desc-turnos" role="region" aria-label="Detalle: turnos médicos" hidden>
+                                        <span class="proyecto-categoria">Salud · Turnos</span>
+                                        <h4>Sistema turnos médicos</h4>
+                                        <p class="proyecto-resumen"><strong>Lo que hicimos:</strong> aplicación para programación y seguimiento de turnos en una unidad sanitaria, con agenda centralizada, notificaciones y panel de gestión para el equipo asistencial.</p>
+                                        <p class="proyecto-relato">Módulo de gestión y seguimiento de pacientes con patología crónica en el marco de una unidad sanitaria. Reemplaza el esquema previo basado en libretas, formularios físicos y hojas de cálculo no integradas, formalizando la automatización del flujo de asignación y reprogramación de turnos. Centraliza el registro de prestaciones otorgadas por paciente y por período, reduce la duplicidad de carga administrativa y habilita controles operativos para la planificación de demanda, la trazabilidad de atenciones y la documentación de respaldo ante auditorías internas.</p>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="sobre-nosotros" class="sobre-nosotros" aria-labelledby="sobre-heading">
+                    <div class="sobre-nosotros-backdrop" aria-hidden="true"></div>
+                    <div class="sobre-nosotros-inner container">
+                        <header class="sobre-nosotros-head">
+                            <p class="tag-sobre">Sobre nosotros</p>
+                            <h2 id="sobre-heading">De la facultad al código: <span class="sobre-gradient">una historia que sigue creciendo</span></h2>
+                            <p class="sobre-lead">Compañeros de carrera, un verano y la decisión de crear algo propio.</p>
+                        </header>
+                        <div class="sobre-nosotros-panel">
+                            <div class="sobre-media">
+                                <figure class="sobre-figure">
+                                    <img class="sobre-foto" src="IMG/sobrenosotros2.png" alt="Dos desarrolladores de software colaborando con código en pantallas, equipo CMR Software Solutions" loading="lazy" decoding="async">
+                                </figure>
+                            </div>
+                            <div class="sobre-copy">
+                                <p>En CMR Software Solutions todo comenzó de manera natural: somos compañeros de facultad que, durante un verano, entre charlas y ganas de crear algo propio, decidimos dar el primer paso y convertir una idea en proyecto. Lo que empezó como una iniciativa entre amigos fue creciendo con esfuerzo, aprendizaje constante y una visión compartida: desarrollar soluciones tecnológicas confiables, modernas y pensadas para las necesidades reales de cada cliente.</p>
+                                <p>Hoy trabajamos en conjunto combinando nuestros conocimientos y experiencias, manteniendo siempre la cercanía y el compromiso que nos impulsó desde el inicio. Creemos en hacer las cosas bien, en generar confianza y en acompañar cada proyecto con responsabilidad, desde la primera idea hasta su implementación. Porque sabemos que el crecimiento no es casualidad, sino el resultado de trabajo en equipo, dedicación y la convicción de que incluso una idea nacida en un verano puede transformarse en algo grande.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            <footer id="footer">
+                <div class="footer-container">
+
+                    <div class="footer-col">
+                        <h3><img src="IMG/logo2.png" width="300"></h3>
+                        <p class="footer-descripcion">En CMR creamos software a medida que simplifica procesos, mejora la productividad y acompaña el crecimiento de cada negocio.</p>
+                        <p class="footer-mini">• Hecho en Argentina • Soluciones a medida • Tecnología moderna</p>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Enlaces</h4>
+                        
+                        <ul>
+                            <li><a href="#hero">Inicio</a></li>
+                            <li><a href="#servicios">Servicios</a></li>
+                            <li><a href="#proyectos">Proyectos</a></li>
+                            <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+                            <li><a href="asesoramiento.html">Contacto</a></li>
+                            <li><button type="button" class="btn-nav js-goto-asesoramiento">Solicitar Acesoramiento</button></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Contacto</h4>
+                        <p>Email: cmrsoftware.sn@gmail.com</p>
+                        <p>Whatsapp: <a href="https://wa.me/5493364578599?text=Hola%20CMR%2C%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20sus%20servicios." target="_blank" rel="noopener noreferrer">+54 9 336 457-8599</a></p>
+                    </div>
+
+                </div>
+
+                <div class="footer-bottom">
+                    <p>© 2026 CMR Software Solutions - Todos los derechos reservados</p>
+                </div>
+            </footer>
+
+        <div id="proyecto-captura-lightbox" class="proyecto-captura-lightbox" role="dialog" aria-modal="true" aria-label="Vista ampliada de capturas del proyecto" hidden>
+            <button type="button" class="proyecto-captura-lightbox-backdrop" aria-label="Cerrar vista ampliada"></button>
+            <div class="proyecto-captura-lightbox-inner">
+                <button type="button" class="proyecto-captura-lightbox-close" aria-label="Cerrar">&times;</button>
+                <div id="proyecto-lightbox-carousel-host" class="proyecto-lightbox-carousel-host"></div>
+            </div>
+        </div>
+    </body>
+</html>

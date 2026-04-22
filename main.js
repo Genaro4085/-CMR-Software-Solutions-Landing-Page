@@ -1,6 +1,65 @@
 /* CMR Software Solutions — comportamiento del sitio (scroll, carruseles, formulario) */
 
 (function () {
+    var toggle = document.querySelector(".js-nav-toggle");
+    var nav = document.querySelector(".site-nav");
+    var menu = document.getElementById("nav-primary");
+    if (!toggle || !nav || !menu) return;
+
+    function setMenuOpen(open, opts) {
+        opts = opts || {};
+        nav.classList.toggle("menu-open", open);
+        menu.classList.toggle("is-open", open);
+        toggle.setAttribute("aria-expanded", open ? "true" : "false");
+        toggle.setAttribute(
+            "aria-label",
+            open ? "Cerrar menú de navegación" : "Abrir menú de navegación"
+        );
+        document.body.classList.toggle("nav-menu-open", open);
+        if (open) {
+            var first = menu.querySelector("a, button");
+            if (first && typeof first.focus === "function") {
+                window.setTimeout(function () {
+                    try {
+                        first.focus({ preventScroll: true });
+                    } catch (err) {
+                        first.focus();
+                    }
+                }, 0);
+            }
+        } else if (opts.focusToggle !== false) {
+            try {
+                toggle.focus({ preventScroll: true });
+            } catch (err2) {
+                toggle.focus();
+            }
+        }
+    }
+
+    toggle.addEventListener("click", function () {
+        setMenuOpen(!nav.classList.contains("menu-open"));
+    });
+
+    menu.addEventListener("click", function (e) {
+        if (e.target.closest("a") || e.target.closest(".btn-nav")) {
+            setMenuOpen(false, { focusToggle: false });
+        }
+    });
+
+    window.addEventListener("resize", function () {
+        if (window.matchMedia("(min-width: 961px)").matches) {
+            setMenuOpen(false, { focusToggle: false });
+        }
+    });
+
+    document.addEventListener("keydown", function (e) {
+        if (e.key !== "Escape") return;
+        if (!nav.classList.contains("menu-open")) return;
+        setMenuOpen(false);
+    });
+})();
+
+(function () {
     var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     function easeInOutCubic(t) {
@@ -894,8 +953,10 @@
 
     form.addEventListener("submit", function (e) {
         e.preventDefault();
-        errEl.hidden = true;
-        errEl.textContent = "";
+        if (errEl) {
+            errEl.hidden = true;
+            errEl.textContent = "";
+        }
 
         if (!form.checkValidity()) {
             form.reportValidity();
@@ -904,8 +965,10 @@
 
         var necesidades = form.querySelectorAll('input[name="necesidad"]:checked');
         if (necesidades.length === 0) {
-            errEl.textContent = "Marcá al menos una opción en «¿Qué tipo de necesidad tenés?».";
-            errEl.hidden = false;
+            if (errEl) {
+                errEl.textContent = "Marcá al menos una opción en «¿Qué tipo de necesidad tenés?».";
+                errEl.hidden = false;
+            }
             return;
         }
 

@@ -16,6 +16,12 @@ html{
     box-sizing: border-box; /*si se define 300px queda eso, no se suma con los otros px*/
 }
 
+img,
+video{
+    max-width: 100%;
+    height: auto;
+}
+
 /*CMR SOFTWARE SOLUTIONS*/
 
 .tag{
@@ -32,17 +38,21 @@ html{
 /*BODY*/
 
 body{
-    font-family: 'Poppins', sans-serif; /*Se define tipografia*/
-    line-height: 1.5; /*Espacio entre lineas*/
-    text-align: justify;
-    text-justify: inter-word;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.5;
+    text-align: left;
     hyphens: none;
     -webkit-hyphens: none;
     -ms-hyphens: none;
+    overflow-x: clip;
+}
+
+body.nav-menu-open{
+    overflow: hidden;
 }
 
 .container{
-    max-width:  1200px; /*limida el ancho*/
+    max-width: 1200px; /* limita el ancho */
     margin: 0 auto; /*centra horizontalmente*/
     padding: 20px; /*espacio interno para que no se pegue a los bordes*/
 }
@@ -100,18 +110,21 @@ header nav .logo-link img.logo{
     align-items: center; /* centra verticalmente */
     justify-content: space-between; /* separa izquierda y derecha */
     gap: 60px; /* espacio entre columnas */
+    flex-wrap: nowrap;
+    min-width: 0;
 }
 
 .hero-texto{
-    flex: 1.2; /*tamaño de texto*/
+    flex: 1.2 1 0; /*tamaño de texto; 1 0 permite encoger sin pasar a columna*/
     max-width: 600px;
+    min-width: 0;
     text-shadow: 0 1px 2px rgba(15, 23, 42, 0.22);
     text-align: left;
 }
 
-.hero-text h1{
-    font-size: 48px; /* tamaño de fuente */
-    margin: 20px 0; /* espacio ariba y abajo*/
+.hero-texto h1{
+    font-size: 48px; /* tamaño de fuente (escritorio como antes) */
+    margin: 20px 0; /* espacio arriba y abajo */
     line-height: 1.2;
 }
 
@@ -127,6 +140,8 @@ header nav .logo-link img.logo{
     display: flex;
     justify-content: flex-end; /*Forzar posicionamiento a la derecha*/
     align-items: center;
+    flex: 1 1 0;
+    min-width: 0;
 }
 .hero-img img{
     width: 100%; /* La imagen ocupa todo el contenedor */
@@ -134,6 +149,74 @@ header nav .logo-link img.logo{
     height: auto;
     transform: translateY(30px) scale(1.05);
     /* box-shadow: 0 30px 80px rgba(0,0,0,0.5);  efecto flotante */
+}
+
+/* Misma fila que siempre: los dos botones juntos (sin apilar) */
+.hero-actions{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 10px;
+    margin-top: 0;
+}
+
+.hero-actions button{
+    margin-right: 0;
+    flex: 0 1 auto;
+}
+
+@media (max-width: 900px){
+    #hero .container{
+        flex-direction: column;
+        flex-wrap: wrap;
+        text-align: center;
+    }
+
+    .hero-texto{
+        text-align: center;
+        max-width: none;
+    }
+
+    .hero-texto p{
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-img{
+        justify-content: center;
+    }
+
+    .hero-img img{
+        transform: translateY(0) scale(1);
+        max-width: min(500px, 100%);
+    }
+
+    .hero-actions{
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 720px){
+    .hero-texto h1{
+        font-size: clamp(1.35rem, 4.5vw + 0.35rem, 2.75rem);
+    }
+}
+
+@media (max-width: 520px){
+    #hero .container{
+        gap: clamp(12px, 3vw, 28px);
+    }
+
+    .hero-actions{
+        gap: 8px;
+    }
+
+    .hero-actions .btn-primary,
+    .hero-actions .btn-whatsapp{
+        padding: 9px 14px;
+        font-size: clamp(0.72rem, 2.8vw, 0.88rem);
+    }
 }
 
 /*BOTONES EN EL HERO*/
@@ -173,48 +256,217 @@ button:hover{ /*Al pasar por arriba del boton genera una transparencia sutil*/
 
 /*PARTE DE ARRIBA NAVBAR*/
 
-nav{ /*Actualizamos la interfaz de el navbar, "la parte de arriba"*/
+.site-nav{
     display: flex;
     justify-content: flex-start;
     align-items: center;
     width: 100%;
     padding: 0 clamp(14px, 3vw, 28px);
+    padding-right: max(clamp(14px, 3vw, 28px), env(safe-area-inset-right));
+    padding-left: max(clamp(14px, 3vw, 28px), env(safe-area-inset-left));
     min-height: 0;
     box-sizing: border-box;
+    gap: 0.5rem;
 }
 
-nav ul{
-    display: flex; /*Lo pone horizontal*/
-    list-style: none; /*Se le saca los puntos a la lista*/
+.site-nav .nav-primary{
+    display: flex;
+    list-style: none;
     gap: 10px;
-    align-items: center; /*alinea el texto y el botón al mismo centro ya que sino el boton quedaba mas arriba */
+    align-items: center;
     margin-left: auto;
     flex-shrink: 0;
 }
 
-nav ul li a{
+.site-nav .nav-primary li a{
     font-size: 0.85rem;
     color: #5a6270;
     transition: color 0.22s ease, text-decoration-color 0.22s ease, text-underline-offset 0.22s ease;
 }
 
-nav .btn-nav{
+.site-nav .btn-nav{
     padding: 6px 12px;
     font-size: 0.78rem;
     margin-right: 0;
 }
 
-nav a{
-    text-decoration: none; /*Sacar subrayado*/
+.site-nav a{
+    text-decoration: none;
     color: black;
 }
 
-nav ul li a:hover{
+.site-nav .nav-primary li a:hover{
     color: #2850c0;
     text-decoration: underline;
     text-decoration-thickness: 2px;
     text-underline-offset: 5px;
     text-decoration-color: #178e86;
+}
+
+/* Menú compacto en pantallas angostas: misma información, acceso táctil claro */
+.nav-toggle{
+    display: none;
+    position: relative;
+    z-index: 2101;
+    margin-left: auto;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 2.65rem;
+    height: 2.65rem;
+    padding: 0;
+    border: 1px solid rgba(40, 80, 192, 0.28);
+    border-radius: 12px;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.95) 0%, rgba(236, 244, 252, 0.92) 100%);
+    box-shadow: 0 2px 10px rgba(40, 80, 192, 0.08);
+    cursor: pointer;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.nav-toggle:hover{
+    border-color: rgba(23, 142, 134, 0.45);
+    box-shadow: 0 4px 14px rgba(23, 142, 134, 0.12);
+}
+
+.nav-toggle:focus{
+    outline: none;
+}
+
+.nav-toggle:focus-visible{
+    outline: 2px solid rgba(40, 80, 192, 0.45);
+    outline-offset: 2px;
+}
+
+.nav-toggle-bars,
+.nav-toggle-bars::before,
+.nav-toggle-bars::after{
+    display: block;
+    width: 1.15rem;
+    height: 2px;
+    background: linear-gradient(90deg, #2850c0, #178e86);
+    border-radius: 1px;
+    transition: transform 0.28s ease, opacity 0.2s ease, top 0.28s ease;
+}
+
+.nav-toggle-bars{
+    position: relative;
+}
+
+.nav-toggle-bars::before,
+.nav-toggle-bars::after{
+    content: "";
+    position: absolute;
+    left: 0;
+}
+
+.nav-toggle-bars::before{
+    top: -6px;
+}
+
+.nav-toggle-bars::after{
+    top: 6px;
+}
+
+.site-nav.menu-open .nav-toggle-bars{
+    background: transparent;
+}
+
+.site-nav.menu-open .nav-toggle-bars::before{
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.site-nav.menu-open .nav-toggle-bars::after{
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+@media (prefers-reduced-motion: reduce){
+    .nav-toggle-bars,
+    .nav-toggle-bars::before,
+    .nav-toggle-bars::after{
+        transition-duration: 0.01ms;
+    }
+}
+
+@media (max-width: 960px){
+    .site-nav > .logo,
+    .site-nav > .logo-link{
+        position: relative;
+        z-index: 2101;
+    }
+
+    .nav-toggle{
+        display: inline-flex;
+    }
+
+    .site-nav .nav-primary{
+        position: fixed;
+        z-index: 2100;
+        inset: 0;
+        width: 100%;
+        max-width: none;
+        height: 100%;
+        min-height: 100dvh;
+        margin: 0;
+        padding: calc(env(safe-area-inset-top) + 5.25rem) clamp(1.25rem, 5vw, 2rem) calc(env(safe-area-inset-bottom) + 2rem);
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        gap: 0.35rem;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        list-style: none;
+        background: rgba(255, 255, 255, 0.97);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        box-shadow: 0 0 0 1px rgba(64, 77, 160, 0.08);
+        transform: translateX(100%);
+        visibility: hidden;
+        pointer-events: none;
+        transition:
+            transform 0.32s cubic-bezier(0.33, 1, 0.32, 1),
+            visibility 0.32s step-end;
+    }
+
+    .site-nav .nav-primary.is-open{
+        transform: translateX(0);
+        visibility: visible;
+        pointer-events: auto;
+        transition:
+            transform 0.32s cubic-bezier(0.33, 1, 0.32, 1),
+            visibility 0s step-start;
+    }
+
+    .site-nav .nav-primary li{
+        width: 100%;
+    }
+
+    .site-nav .nav-primary li a{
+        display: block;
+        padding: 0.65rem 0.35rem;
+        font-size: 1rem;
+        border-radius: 10px;
+    }
+
+    .site-nav .nav-primary li a:hover{
+        text-decoration: none;
+        background: rgba(40, 80, 192, 0.06);
+    }
+
+    .site-nav .nav-primary .btn-nav{
+        width: 100%;
+        margin-top: 0.35rem;
+        padding: 0.7rem 1rem;
+        font-size: 0.9rem;
+        border-radius: 12px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce){
+    .site-nav .nav-primary{
+        transition-duration: 0.01ms;
+    }
 }
 
 .btn-nav{
@@ -537,7 +789,6 @@ body.page-asesoramiento nav a .fa-arrow-left{
     border-radius: 10px;
 }    
 
-/* El body usa justify; en líneas cortas conviene texto alineado a la izquierda */
 .problema-item > div{
     flex: 1;
     min-width: 0;
@@ -732,7 +983,8 @@ body.page-asesoramiento nav a .fa-arrow-left{
     color: #070f37;
     padding: clamp(2rem, 5vw, 3.25rem) clamp(12px, 4vw, 24px);
     position: relative;
-    overflow: hidden;
+    /* Dejar ver el anillo 3D que sobresale del bloque al girar */
+    overflow: visible;
 }
 
 #proyectos::before{
@@ -754,7 +1006,7 @@ body.page-asesoramiento nav a .fa-arrow-left{
 .proyectos-envoltura{
     position: relative;
     z-index: 1;
-    max-width: 1200px;
+    max-width: min(100%, 1400px);
     margin: 0 auto;
 }
 
@@ -771,6 +1023,7 @@ body.page-asesoramiento nav a .fa-arrow-left{
     line-height: 1.25;
     color: #070f37;
     letter-spacing: -0.02em;
+    overflow-wrap: break-word;
 }
 
 .proyectos-gradient{
@@ -814,8 +1067,17 @@ body.page-asesoramiento nav a .fa-arrow-left{
 
 /* Una sola vitrina de proyectos (tabs + galería + texto), en lugar de 3 columnas */
 .proyectos-showcase-container{
-    max-width: min(960px, 100%);
-    margin: 0 auto;
+    /* Casi ancho de ventana con margen fino a los lados (más prolijo) */
+    position: relative;
+    left: 50%;
+    --proyectos-showcase-inline: clamp(14px, 3vw, 36px);
+    width: calc(100vw - 2 * var(--proyectos-showcase-inline) - env(safe-area-inset-left) - env(safe-area-inset-right));
+    max-width: none;
+    margin: 0;
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+    box-sizing: border-box;
+    transform: translateX(-50%);
 }
 
 .proyecto-showcase{
@@ -823,6 +1085,20 @@ body.page-asesoramiento nav a .fa-arrow-left{
     flex-direction: column;
     min-width: 0;
     min-height: 0;
+}
+
+/* Un solo marco: pestañas + galería + controles (borde azul-verde marca, sin marcos internos duplicados) */
+.proyecto-showcase .proyecto-carousel-shell{
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    border: 1px solid rgba(40, 90, 125, 0.28);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.35);
+    box-shadow: 0 2px 14px rgba(40, 80, 192, 0.06);
+    overflow: visible;
 }
 
 .proyecto-tabs{
@@ -882,11 +1158,16 @@ body.page-asesoramiento nav a .fa-arrow-left{
     outline-offset: 2px;
 }
 
+.proyecto-showcase .proyecto-carousel-shell .proyecto-tabs{
+    border-bottom: 1px solid rgba(64, 77, 160, 0.07);
+    border-radius: 14px 14px 0 0;
+}
+
 .proyecto-gallery-unified{
     position: relative;
     width: 100%;
     flex: 1 1 auto;
-    min-height: clamp(252px, 48vw, 360px);
+    min-height: clamp(268px, 50vw, 380px);
 }
 
 .proyecto-showcase .proyecto-coverflow-stage{
@@ -895,7 +1176,7 @@ body.page-asesoramiento nav a .fa-arrow-left{
 
 .proyecto-desc-unified{
     position: relative;
-    padding: 1.05rem 1.25rem 1.35rem 1.45rem;
+    padding: 1.05rem clamp(0.85rem, 3vw, 1.25rem) 1.35rem clamp(0.85rem, 3vw, 1.45rem);
     border-top: 1px solid rgba(77, 129, 182, 0.22);
     background: linear-gradient(
         178deg,
@@ -928,32 +1209,55 @@ body.page-asesoramiento nav a .fa-arrow-left{
 .proyecto-media.proyecto-carousel.js-proyecto-carousel-continuo{
     overflow: visible;
     aspect-ratio: unset;
-    min-height: clamp(320px, 58vw, 460px);
+    min-height: clamp(340px, 60vw, 480px);
 }
 
 .proyecto-media.proyecto-carousel.js-proyecto-carousel-continuo .proyecto-coverflow-stage.proyecto-ring-stage{
     perspective: none;
-    padding: 12px 10px 8px;
-    min-height: clamp(276px, 50vw, 400px);
-    border-radius: 14px 14px 0 0;
+    display: flex;
+    flex-direction: column;
+    isolation: isolate;
+    gap: clamp(12px, 2.2vw, 22px);
+    padding: 14px clamp(10px, 2.2vw, 22px) 16px;
+    min-height: clamp(288px, 52vw, 420px);
+    border-radius: 0;
+    overflow: visible;
+    border: none;
+    box-shadow: none;
+    /* Fondo azul muy claro, casi blanco: contrasta con el fondo de la sección #proyectos */
+    background-color: #f2f7fd;
+    background-image:
+        radial-gradient(ellipse 92% 74% at 50% 36%, rgba(255, 255, 255, 0.98) 0%, transparent 58%),
+        radial-gradient(ellipse 100% 52% at 12% 0%, rgba(100, 150, 210, 0.1) 0%, transparent 50%),
+        radial-gradient(ellipse 88% 48% at 92% 100%, rgba(80, 180, 170, 0.07) 0%, transparent 50%),
+        linear-gradient(168deg, #fbfdff 0%, #eef5fc 42%, #e4eef9 78%, #dde8f6 100%);
 }
 
 .proyecto-ring-viewport{
     position: relative;
+    z-index: 1;
     flex: 1 1 auto;
     width: 100%;
-    min-height: clamp(254px, 47vw, 368px);
-    overflow: hidden;
+    min-height: clamp(268px, 50vw, 392px);
+    /* visible: mostrar caras del anillo que sobresalen al girar (toda la circunferencia apreciable) */
+    overflow: visible;
     /* El navegador no intercepta el gesto horizontal: arrastrá con mouse o dedo */
     touch-action: none;
     transform-style: preserve-3d;
-    /* Más perspectiva = “cámara” más atrás: las caras entran completas sin rozar el recorte */
-    perspective: clamp(780px, 102vw, 1420px);
+    /* Cámara más alejada = se ve más arco del cilindro a la vez */
+    perspective: clamp(980px, 118vw, 2200px);
     perspective-origin: 50% 46%;
     border-radius: 12px;
-    /* Máscara casi plana: no corta esquinas de las tarjetas laterales */
-    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 0.35%, #000 99.65%, transparent 100%);
-    mask-image: linear-gradient(90deg, transparent 0%, #000 0.35%, #000 99.65%, transparent 100%);
+    -webkit-mask-image: none;
+    mask-image: none;
+}
+
+/* Aún más ancho útil del escenario del anillo dentro de la tarjeta */
+.proyecto-card.proyecto-showcase .proyecto-ring-viewport{
+    width: calc(100% + clamp(32px, 7vw, 100px));
+    max-width: none;
+    margin-left: calc(-0.5 * clamp(32px, 7vw, 100px));
+    margin-right: calc(-0.5 * clamp(32px, 7vw, 100px));
 }
 
 .proyecto-ring-viewport::before{
@@ -963,9 +1267,7 @@ body.page-asesoramiento nav a .fa-arrow-left{
     pointer-events: none;
     z-index: 2;
     border-radius: inherit;
-    box-shadow:
-        inset 0 0 0 1px rgba(255, 255, 255, 0.07),
-        inset 0 0 56px rgba(5, 12, 35, 0.26);
+    box-shadow: inset 0 0 24px rgba(64, 100, 130, 0.04);
 }
 
 .proyecto-ring-viewport::after{
@@ -974,16 +1276,16 @@ body.page-asesoramiento nav a .fa-arrow-left{
     left: 0;
     right: 0;
     bottom: 0;
-    height: 32%;
+    height: 28%;
     pointer-events: none;
     z-index: 1;
     background: linear-gradient(
         180deg,
         transparent 0%,
-        rgba(8, 16, 42, 0.18) 45%,
-        rgba(5, 12, 35, 0.42) 100%
+        rgba(180, 205, 232, 0.22) 50%,
+        rgba(160, 188, 220, 0.32) 100%
     );
-    opacity: 0.9;
+    opacity: 0.85;
 }
 
 .proyecto-ring-track{
@@ -1004,11 +1306,11 @@ body.page-asesoramiento nav a .fa-arrow-left{
     }
 }
 
-/* Marco único para cada cara: chaflán CMR (misma familia que .proyecto-card) + clip */
+/* Marco por cara (chaflán CMR): un poco más chico y tonos más claros que la versión original oscura */
 .proyecto-media.proyecto-carousel.js-proyecto-carousel-continuo .proyecto-ring-face.proyecto-coverflow-slide{
-    --proyecto-ring-chamfer: clamp(7px, 1.15vw, 11px);
-    --proyecto-ring-panel-w: min(186px, 27.5vw);
-    --proyecto-ring-panel-h: min(234px, 36.5vw);
+    --proyecto-ring-chamfer: clamp(6px, 1vw, 10px);
+    --proyecto-ring-panel-w: min(178px, 26vw);
+    --proyecto-ring-panel-h: min(222px, 34vw);
     position: absolute;
     box-sizing: border-box;
     display: flex;
@@ -1018,10 +1320,10 @@ body.page-asesoramiento nav a .fa-arrow-left{
     flex: none;
     width: var(--proyecto-ring-panel-w);
     height: var(--proyecto-ring-panel-h);
-    max-width: min(186px, 90vw);
-    max-height: min(262px, 45vw);
+    max-width: min(194px, 88vw);
+    max-height: min(252px, 42vw);
     margin: 0;
-    padding: 0.45rem;
+    padding: 0.38rem;
     scroll-snap-align: unset;
     transform-style: preserve-3d;
     backface-visibility: visible;
@@ -1041,22 +1343,32 @@ body.page-asesoramiento nav a .fa-arrow-left{
     );
     background: linear-gradient(
         168deg,
-        rgba(255, 255, 255, 0.14) 0%,
-        rgba(40, 80, 192, 0.08) 42%,
-        rgba(5, 12, 35, 0.32) 100%
+        rgba(255, 255, 255, 0.55) 0%,
+        rgba(230, 240, 252, 0.5) 48%,
+        rgba(205, 222, 245, 0.42) 100%
     );
-    border: 1px solid rgba(255, 255, 255, 0.22);
+    border: 1px solid rgba(255, 255, 255, 0.55);
     box-shadow:
-        0 0 0 1px rgba(40, 80, 192, 0.12),
-        0 20px 44px -18px rgba(5, 12, 35, 0.72),
-        inset 0 1px 0 rgba(255, 255, 255, 0.18);
-    filter: drop-shadow(0 10px 20px rgba(5, 12, 35, 0.35));
+        0 10px 28px -12px rgba(55, 95, 150, 0.16),
+        inset 0 0 0 1px rgba(32, 95, 125, 0.38),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    filter: drop-shadow(0 6px 14px rgba(55, 100, 150, 0.12));
+}
+
+/* Capturas: fondo un poco más profundo para que las pantallas no se vean lavadas */
+.proyecto-media.proyecto-carousel.js-proyecto-carousel-continuo .proyecto-ring-face.proyecto-coverflow-slide:not(.proyecto-coverflow-portada){
+    background: linear-gradient(
+        168deg,
+        rgba(232, 238, 248, 0.98) 0%,
+        rgba(208, 218, 234, 0.96) 52%,
+        rgba(188, 202, 224, 0.94) 100%
+    );
 }
 
 .proyecto-showcase .proyecto-media.proyecto-carousel.js-proyecto-carousel-continuo .proyecto-ring-face.proyecto-coverflow-slide{
     flex: none;
-    --proyecto-ring-panel-w: min(182px, 26.5vw);
-    --proyecto-ring-panel-h: min(228px, 35vw);
+    --proyecto-ring-panel-w: min(184px, 25vw);
+    --proyecto-ring-panel-h: min(228px, 33vw);
 }
 
 .proyecto-media.proyecto-carousel.js-proyecto-carousel-continuo .proyecto-ring-face.proyecto-coverflow-slide > img{
@@ -1069,10 +1381,10 @@ body.page-asesoramiento nav a .fa-arrow-left{
     object-position: center;
     border-radius: 0;
     box-shadow:
-        0 6px 20px -6px rgba(5, 12, 35, 0.45),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+        0 3px 12px -4px rgba(25, 45, 75, 0.22),
+        inset 0 0 0 1px rgba(55, 95, 125, 0.22);
     cursor: zoom-in;
-    background: rgba(2, 8, 24, 0.35);
+    background: rgba(198, 210, 228, 0.55);
     -webkit-user-drag: none;
     user-select: none;
 }
@@ -1085,14 +1397,14 @@ body.page-asesoramiento nav a .fa-arrow-left{
     min-height: 0;
     width: 100%;
     border-radius: 0;
-    border: 1px solid rgba(255, 255, 255, 0.26);
+    border: 1px solid rgba(255, 255, 255, 0.45);
     background:
-        radial-gradient(120% 90% at 12% 0%, rgba(56, 189, 248, 0.38) 0%, transparent 52%),
-        radial-gradient(80% 60% at 92% 100%, rgba(23, 142, 134, 0.35) 0%, transparent 48%),
-        linear-gradient(132deg, #3560c8 0%, #2850c0 36%, #1e5a9a 58%, #178e86 100%);
+        radial-gradient(120% 90% at 12% 0%, rgba(186, 230, 253, 0.65) 0%, transparent 52%),
+        radial-gradient(80% 60% at 92% 100%, rgba(167, 243, 208, 0.45) 0%, transparent 48%),
+        linear-gradient(132deg, #6d8fd8 0%, #5c7ec8 36%, #6a96c4 58%, #6db8ae 100%);
     box-shadow:
-        0 14px 36px -12px rgba(5, 12, 35, 0.55),
-        inset 0 1px 0 rgba(255, 255, 255, 0.24);
+        0 10px 26px -12px rgba(55, 100, 150, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.45);
 }
 
 .proyecto-media.proyecto-carousel.js-proyecto-carousel-continuo
@@ -1102,14 +1414,14 @@ body.page-asesoramiento nav a .fa-arrow-left{
     min-height: 0;
     width: 100%;
     border-radius: 0;
-    border: 1px solid rgba(255, 255, 255, 0.26);
+    border: 1px solid rgba(255, 255, 255, 0.45);
     background:
-        radial-gradient(100% 85% at 88% 8%, rgba(34, 211, 238, 0.42) 0%, transparent 46%),
-        radial-gradient(70% 55% at 0% 100%, rgba(40, 80, 192, 0.45) 0%, transparent 55%),
-        linear-gradient(118deg, #2c4aa8 0%, #2850c0 34%, #178e86 68%, #0f766e 100%);
+        radial-gradient(100% 85% at 88% 8%, rgba(165, 243, 252, 0.55) 0%, transparent 46%),
+        radial-gradient(70% 55% at 0% 100%, rgba(147, 180, 244, 0.5) 0%, transparent 55%),
+        linear-gradient(118deg, #5c78c4 0%, #5478c8 34%, #52a898 68%, #4a9e96 100%);
     box-shadow:
-        0 14px 36px -12px rgba(5, 12, 35, 0.55),
-        inset 0 1px 0 rgba(255, 255, 255, 0.24);
+        0 10px 26px -12px rgba(55, 100, 150, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.45);
 }
 
 .proyecto-media.proyecto-carousel.js-proyecto-carousel-continuo
@@ -1119,13 +1431,13 @@ body.page-asesoramiento nav a .fa-arrow-left{
     min-height: 0;
     width: 100%;
     border-radius: 0;
-    border: 1px solid rgba(255, 255, 255, 0.26);
+    border: 1px solid rgba(255, 255, 255, 0.45);
     background:
-        radial-gradient(95% 75% at 50% -5%, rgba(56, 189, 248, 0.45) 0%, transparent 50%),
-        linear-gradient(152deg, #404da0 0%, #2850c0 38%, #178e86 78%, #38bdf8 100%);
+        radial-gradient(95% 75% at 50% -5%, rgba(186, 230, 253, 0.55) 0%, transparent 50%),
+        linear-gradient(152deg, #6a78b8 0%, #5a74c4 38%, #5aa898 78%, #6bc4e0 100%);
     box-shadow:
-        0 14px 36px -12px rgba(5, 12, 35, 0.55),
-        inset 0 1px 0 rgba(255, 255, 255, 0.24);
+        0 10px 26px -12px rgba(55, 100, 150, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.45);
 }
 
 /* Barra de navegación del cilindro */
@@ -1136,6 +1448,63 @@ body.page-asesoramiento nav a .fa-arrow-left{
     justify-content: center;
     gap: 0.55rem 0.75rem;
     padding: 0.55rem 0.65rem 0.62rem;
+}
+
+/* Continuación del escenario, sin borde extra (el marco único es .proyecto-carousel-shell) */
+.proyecto-media.proyecto-carousel.js-proyecto-carousel-continuo > .carousel-3d-controls.proyecto-ring-controls{
+    background: linear-gradient(
+        180deg,
+        rgba(252, 253, 255, 0.98) 0%,
+        rgba(236, 244, 252, 0.95) 45%,
+        rgba(226, 238, 250, 0.93) 100%
+    );
+    border-top: none;
+    box-shadow: none;
+}
+
+.proyecto-showcase .proyecto-carousel-shell .proyecto-media.proyecto-carousel.js-proyecto-carousel-continuo > .carousel-3d-controls.proyecto-ring-controls{
+    border-radius: 0 0 13px 13px;
+}
+
+/* Anterior / Siguiente: forma biselada; verde-azul marca, sin brillo chillón */
+.proyecto-media.proyecto-carousel.js-proyecto-carousel-continuo > .carousel-3d-controls.proyecto-ring-controls .carousel-3d-prev.carousel-3d-btn,
+.proyecto-media.proyecto-carousel.js-proyecto-carousel-continuo > .carousel-3d-controls.proyecto-ring-controls .carousel-3d-next.carousel-3d-btn{
+    color: #f8fafc;
+    border-color: rgba(23, 142, 134, 0.55);
+    background-color: #178e86;
+    background-image: linear-gradient(118deg, #1a9a8e 0%, #178e86 45%, #157a73 100%);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    box-shadow:
+        0 1px 6px rgba(15, 55, 52, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.proyecto-media.proyecto-carousel.js-proyecto-carousel-continuo > .carousel-3d-controls.proyecto-ring-controls .carousel-3d-prev.carousel-3d-btn:hover,
+.proyecto-media.proyecto-carousel.js-proyecto-carousel-continuo > .carousel-3d-controls.proyecto-ring-controls .carousel-3d-next.carousel-3d-btn:hover{
+    color: #fff;
+    border-color: rgba(23, 142, 134, 0.72);
+    background-color: #147a74;
+    background-image: linear-gradient(118deg, #1aa090 0%, #15958c 50%, #128577 100%);
+    box-shadow:
+        0 2px 10px rgba(15, 55, 52, 0.16),
+        inset 0 1px 0 rgba(255, 255, 255, 0.22);
+}
+
+.proyecto-media.proyecto-carousel.js-proyecto-carousel-continuo > .carousel-3d-controls.proyecto-ring-controls .carousel-3d-prev.carousel-3d-btn .carousel-3d-btn-text,
+.proyecto-media.proyecto-carousel.js-proyecto-carousel-continuo > .carousel-3d-controls.proyecto-ring-controls .carousel-3d-next.carousel-3d-btn .carousel-3d-btn-text{
+    color: inherit;
+    -webkit-text-fill-color: inherit;
+    background: none;
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
+}
+
+.proyecto-media.proyecto-carousel.js-proyecto-carousel-continuo > .carousel-3d-controls.proyecto-ring-controls .carousel-3d-prev.carousel-3d-btn .carousel-3d-btn-glyph i,
+.proyecto-media.proyecto-carousel.js-proyecto-carousel-continuo > .carousel-3d-controls.proyecto-ring-controls .carousel-3d-next.carousel-3d-btn .carousel-3d-btn-glyph i{
+    color: inherit;
+    -webkit-text-fill-color: inherit;
+    opacity: 1;
 }
 
 .proyecto-ring-controls-mid{
@@ -1225,10 +1594,36 @@ body.page-asesoramiento nav a .fa-arrow-left{
 }
 
 .proyecto-media.proyecto-carousel.js-proyecto-carousel-continuo .proyecto-coverflow-hint{
-    padding: 6px 12px 10px;
-    font-size: 0.6rem;
-    letter-spacing: 0.07em;
-    color: rgba(224, 242, 254, 0.88);
+    position: relative;
+    z-index: 8;
+    flex: 0 0 auto;
+    margin: 0;
+    padding: 10px 14px 12px;
+    font-size: clamp(0.58rem, 1.35vw, 0.65rem);
+    letter-spacing: 0.06em;
+    line-height: 1.45;
+    color: #2a4a6e;
+    text-shadow: none;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    flex-wrap: wrap;
+    /* Franja propia para que el anillo 3D nunca tape el texto */
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.55) 0%,
+        rgba(248, 251, 255, 0.92) 35%,
+        rgba(240, 247, 255, 0.97) 100%
+    );
+    border-radius: 8px;
+    box-shadow: none;
+}
+
+.proyecto-media.proyecto-carousel.js-proyecto-carousel-continuo .proyecto-coverflow-hint i{
+    color: #2850c0;
+    opacity: 0.85;
 }
 
 .proyecto-media.proyecto-carousel.js-proyecto-carousel-continuo
@@ -1261,17 +1656,17 @@ body.page-asesoramiento nav a .fa-arrow-left{
     text-align: center;
     gap: 0.35rem;
     width: 100%;
-    min-height: clamp(168px, 38vw, 232px);
-    padding: clamp(1rem, 3vw, 1.35rem);
+    min-height: clamp(152px, 34vw, 208px);
+    padding: clamp(0.85rem, 2.6vw, 1.15rem);
     box-sizing: border-box;
-    border-radius: 14px;
+    border-radius: 12px;
     background:
-        linear-gradient(145deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.04) 100%),
-        linear-gradient(118deg, rgba(40, 80, 192, 0.55) 0%, rgba(23, 142, 134, 0.45) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.28);
+        linear-gradient(145deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.14) 100%),
+        linear-gradient(118deg, rgba(100, 140, 210, 0.42) 0%, rgba(90, 180, 170, 0.38) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.48);
     box-shadow:
-        0 16px 40px -12px rgba(5, 12, 35, 0.55),
-        inset 0 1px 0 rgba(255, 255, 255, 0.22);
+        0 10px 28px -12px rgba(55, 100, 150, 0.16),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
 .proyecto-portada-eyebrow{
@@ -1300,6 +1695,7 @@ body.page-asesoramiento nav a .fa-arrow-left{
 /* La vitrina única de proyectos deja ver el anillo 3D que sobresale del rectángulo del media */
 .proyecto-card.proyecto-showcase{
     overflow: visible;
+    box-shadow: 0 6px 22px rgba(15, 35, 55, 0.05);
 }
 
 .proyecto-card{
@@ -1762,6 +2158,17 @@ body.page-asesoramiento nav a .fa-arrow-left{
         inset 0 1px 0 rgba(255, 255, 255, 0.65);
 }
 
+.proyecto-card.proyecto-showcase:hover{
+    transform: translateY(-4px);
+    background: linear-gradient(
+        165deg,
+        rgba(255, 255, 255, 0.42) 0%,
+        rgba(210, 232, 248, 0.52) 42%,
+        rgba(200, 238, 232, 0.48) 100%
+    );
+    box-shadow: 0 10px 32px rgba(40, 80, 192, 0.09);
+}
+
 .proyecto-categoria{
     display: inline-block;
     align-self: flex-start;
@@ -1871,7 +2278,10 @@ body.page-asesoramiento nav a .fa-arrow-left{
     z-index: 9999;
     align-items: center;
     justify-content: center;
-    padding: clamp(12px, 3vw, 28px);
+    padding: max(clamp(12px, 3vw, 28px), env(safe-area-inset-top))
+        max(clamp(12px, 3vw, 28px), env(safe-area-inset-right))
+        max(clamp(12px, 3vw, 28px), env(safe-area-inset-bottom))
+        max(clamp(12px, 3vw, 28px), env(safe-area-inset-left));
     box-sizing: border-box;
 }
 
@@ -2099,10 +2509,6 @@ body.page-asesoramiento nav a .fa-arrow-left{
 }
 
 @media (max-width: 900px){
-    .proyectos-showcase-container{
-        max-width: 100%;
-    }
-
     .proyecto-tabs{
         justify-content: flex-start;
         overflow-x: auto;
@@ -2306,18 +2712,26 @@ body.page-asesoramiento nav a .fa-arrow-left{
     opacity: 0.95;
 }
 
-.sobre-copy p{
+.sobre-copy-texto{
     margin: 0 0 1.15rem;
     font-size: clamp(0.9rem, 1.02vw, 1.03rem);
     line-height: 1.78;
     font-weight: 400;
     color: rgba(252, 251, 248, 0.94);
-    max-width: 48ch;
-    letter-spacing: 0.012em;
+    max-width: none;
+    letter-spacing: normal;
+    word-spacing: normal;
     text-wrap: pretty;
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: none;
+    -webkit-hyphens: none;
+    -ms-hyphens: none;
+    word-break: normal;
+    overflow-wrap: normal;
 }
 
-.sobre-copy p:last-child{
+.sobre-copy-texto:last-child{
     margin-bottom: 0;
 }
 
@@ -2341,8 +2755,7 @@ body.page-asesoramiento nav a .fa-arrow-left{
         padding: clamp(1.35rem, 3.5vw, 2rem) clamp(1.2rem, 4vw, 1.65rem);
     }
 
-    .sobre-copy p{
-        max-width: 60ch;
+    .sobre-copy-texto{
         font-size: clamp(0.9rem, 2.6vw, 1rem);
         line-height: 1.76;
     }
@@ -2353,11 +2766,9 @@ body.page-asesoramiento nav a .fa-arrow-left{
         margin-bottom: clamp(1.5rem, 5vw, 2rem);
     }
 
-    .sobre-copy p{
-        max-width: none;
+    .sobre-copy-texto{
         font-size: clamp(0.89rem, 3.6vw, 0.99rem);
         line-height: 1.74;
-        letter-spacing: 0.01em;
     }
 }
 
@@ -2671,19 +3082,20 @@ p{
 #footer{
     background: #0a0f2c; 
     color: white;
-    padding: 6px 28px 4px;
+    padding: clamp(10px, 2.5vw, 14px) clamp(16px, 4vw, 28px) clamp(8px, 2vw, 12px);
+    padding-bottom: max(clamp(8px, 2vw, 12px), env(safe-area-inset-bottom));
 }
 
 .footer-container{
     display: flex;
     justify-content: space-between;
-    gap: 22px;
+    gap: clamp(1rem, 3vw, 1.5rem);
     flex-wrap: wrap;
 }
  
 .footer-col{
     flex: 1;
-    min-width: 220px;
+    min-width: min(100%, 220px);
 }
 
 .footer-col h3{

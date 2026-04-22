@@ -2,7 +2,7 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
         <title>Solicitar asesoramiento | CMR Software Solutions</title>
         <link rel="stylesheet" href="style.css">
         <script src="main.js" defer></script>
@@ -12,11 +12,14 @@
     </head>
     <body class="page-asesoramiento">
         <header>
-            <nav>
+            <nav class="site-nav" aria-label="Principal">
                 <a href="index.html" class="logo-link" aria-label="CMR Software Solutions — inicio">
                     <img src="IMG/logo2.png" alt="CMR logo" class="logo">
                 </a>
-                <ul>
+                <button type="button" class="nav-toggle js-nav-toggle" aria-controls="nav-primary" aria-expanded="false" aria-label="Abrir menú de navegación">
+                    <span class="nav-toggle-bars" aria-hidden="true"></span>
+                </button>
+                <ul id="nav-primary" class="nav-primary">
                     <li><a href="index.html"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver al sitio</a></li>
                     <li><a href="index.html#servicios">Servicios</a></li>
                     <li><a href="index.html#proyectos">Proyectos</a></li>
@@ -150,14 +153,14 @@
                         <li><a href="index.html#proyectos">Proyectos</a></li>
                         <li><a href="index.html#sobre-nosotros">Sobre Nosotros</a></li>
                         <li><a href="asesoramiento.html">Contacto</a></li>
-                        <li><button type="button" class="btn-nav js-scroll-form">Solicitar Acesoramiento</button></li>
+                        <li><button type="button" class="btn-nav js-scroll-form">Solicitar asesoramiento</button></li>
                     </ul>
                 </div>
 
                 <div class="footer-col">
                     <h4>Contacto</h4>
                     <p>Email: cmrsoftware.sn@gmail.com</p>
-                    <p>Whatsapp: <a href="https://wa.me/5493364578599?text=Hola%20CMR%2C%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20sus%20servicios." target="_blank" rel="noopener noreferrer">+54 9 336 457-8599</a></p>
+                    <p>WhatsApp: <a href="https://wa.me/5493364578599?text=Hola%20CMR%2C%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20sus%20servicios." target="_blank" rel="noopener noreferrer">+54 9 336 457-8599</a></p>
                 </div>
 
             </div>

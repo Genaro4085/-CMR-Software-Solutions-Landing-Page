@@ -2,7 +2,7 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
         <title>CMR Software Solutions</title>
         <link rel="stylesheet" href="style.css">
         <script src="main.js" defer></script>
@@ -12,45 +12,46 @@
     </head>
         <body>
             <header>
-                <!-- El headear es la navegacion -->    
-                <!-- NAVBAR -->
-                <nav>
+                <nav class="site-nav" aria-label="Principal">
                         <img src="IMG/logo2.png" alt="CMR logo" class="logo">
 
-                    <ul>
+                    <button type="button" class="nav-toggle js-nav-toggle" aria-controls="nav-primary" aria-expanded="false" aria-label="Abrir menú de navegación">
+                        <span class="nav-toggle-bars" aria-hidden="true"></span>
+                    </button>
+
+                    <ul id="nav-primary" class="nav-primary">
                         <li><a href="#hero">Inicio</a></li>
                         <li><a href="#servicios">Servicios</a></li>
                         <li><a href="#proyectos">Proyectos</a></li>
                         <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
                         <li><a href="#footer">Contacto</a></li>
-                        <li><button type="button" class="btn-nav js-goto-asesoramiento">Solicitar Acesoramiento</button></li>
+                        <li><button type="button" class="btn-nav js-goto-asesoramiento">Solicitar asesoramiento</button></li>
                     </ul>
                 </nav>
-                
-                
             </header>
 
-                <!-- HERO -->
+            <main id="contenido-principal">
                 <section id="hero">
-                    <!-- En el section esta el contenido -->
                     <div class="container">
                         <div class="hero-texto">
                             
                             <p class="tag">CMR Software Solutions</p>
 
-                            <h1>Desarrollamos software a medidad para 
+                            <h1>Desarrollamos software a medida para
                                 <span class="texto-degradado">potenciar tu negocio.</span>
                             </h1>
 
-                            <p>Creamos soluciones tecnologicas modernas, escalables y eficientes que automatizan procesos y generan resultados.</p>  
+                            <p>Creamos soluciones tecnológicas modernas, escalables y eficientes que automatizan procesos y generan resultados.</p>
 
-                            <button type="button" class="btn-primary js-goto-asesoramiento">Solicitar Acesoramiento</button>
-                            <button type="button" class="btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> Hablar por Whatsapp</button>
+                            <div class="hero-actions">
+                                <button type="button" class="btn-primary js-goto-asesoramiento">Solicitar asesoramiento</button>
+                                <button type="button" class="btn-whatsapp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Hablar por WhatsApp</button>
+                            </div>
 
                         </div>
 
-                        <div class="hero-img"> <!-- Acá va la imagen -->
-                            <img src="IMG/Pantalla.png" alt="Sistema de gestion">
+                        <div class="hero-img">
+                            <img src="IMG/Pantalla.png" alt="Sistema de gestión">
                         </div>
 
                     </div>
@@ -59,7 +60,7 @@
 
                 <section id="problema">
 
-                    <div class="problema-envolvente"> <!-- Es para envolver todo y que puedan quedar uno al lado del otro, texto y cards -->    
+                    <div class="problema-envolvente">
                         
                         <div class="problema-texto">
                             <div class="problema-intro-card">
@@ -69,7 +70,7 @@
                             </div>
                         </div>    
                                 
-                        <div class="problema-container"> <!-- lado derecho -->
+                        <div class="problema-container">
 
                             <div class="problema-item">
                                 <i class="fa-solid fa-clock icono-problema"></i>
@@ -149,6 +150,7 @@
 
                         <div class="proyectos-showcase-container">
                             <article class="proyecto-card proyecto-showcase" id="proyecto-showcase">
+                                <div class="proyecto-carousel-shell">
                                 <nav class="proyecto-tabs" role="tablist" aria-label="Elegí un proyecto o deslizá la galería continua">
                                     <button type="button" class="proyecto-tab is-active" role="tab" aria-selected="true" aria-controls="proyecto-galeria-continua" id="proyecto-tab-ferreteria" data-proyecto-index="0">Sistema ferretería</button>
                                     <button type="button" class="proyecto-tab" role="tab" aria-selected="false" aria-controls="proyecto-galeria-continua" id="proyecto-tab-joby" tabindex="-1" data-proyecto-index="1">Joby</button>
@@ -234,13 +236,14 @@
                                         </div>
                                     </div>
                                 </div>
+                                </div>
 
                                 <div class="proyecto-desc-unified" aria-live="polite">
                                     <div class="proyecto-desc-panel is-active" id="proyecto-desc-ferreteria" role="region" aria-label="Detalle: sistema ferretería">
                                         <span class="proyecto-categoria">Retail · Ferretería</span>
                                         <h4>Sistema ferretería</h4>
                                         <p class="proyecto-resumen"><strong>Lo que hicimos:</strong> desarrollamos el flujo de venta en mostrador con búsqueda por rubro y código, emisión de comprobantes y cierre de caja. Incluye listas de precios por lista y reportes de ventas para el día y el mes.</p>
-                                        <p class="proyecto-relato">Solución operativa orientada al vendedor de mostrador: digitaliza y estandariza el circuito de ventas, sustituyendo el registro disperso en papel o planillas auxiliares por la carga sistemática de las operaciones del día. Incorpora clasificación y trazabilidad de medios de pago (efectivo, tarjeta de débito o crédito y condiciones acordadas de cuenta corriente), facilita el arqueo y el cierre de caja y aporta evidencia documental por comprobante para control interno, conciliación y auditoría básica.</p>
+                                        <p class="proyecto-relato">Pensado para el mostrador: un solo flujo de venta con medios de pago claros, arqueo y cierre de caja sencillos, y comprobantes listos para control interno.</p>
                                     </div>
                                     <div class="proyecto-desc-panel" id="proyecto-desc-joby" role="region" aria-label="Detalle: Joby" hidden>
                                         <span class="proyecto-categoria">App móvil · Servicios</span>
@@ -252,7 +255,7 @@
                                         <span class="proyecto-categoria">Salud · Turnos</span>
                                         <h4>Sistema turnos médicos</h4>
                                         <p class="proyecto-resumen"><strong>Lo que hicimos:</strong> aplicación para programación y seguimiento de turnos en una unidad sanitaria, con agenda centralizada, notificaciones y panel de gestión para el equipo asistencial.</p>
-                                        <p class="proyecto-relato">Módulo de gestión y seguimiento de pacientes con patología crónica en el marco de una unidad sanitaria. Reemplaza el esquema previo basado en libretas, formularios físicos y hojas de cálculo no integradas, formalizando la automatización del flujo de asignación y reprogramación de turnos. Centraliza el registro de prestaciones otorgadas por paciente y por período, reduce la duplicidad de carga administrativa y habilita controles operativos para la planificación de demanda, la trazabilidad de atenciones y la documentación de respaldo ante auditorías internas.</p>
+                                        <p class="proyecto-relato">Reemplaza libretas y planillas sueltas: turnos y prestaciones en un solo lugar, con menos trabajo duplicado y registro ordenado para planificar y auditar.</p>
                                     </div>
                                 </div>
                             </article>
@@ -275,18 +278,20 @@
                                 </figure>
                             </div>
                             <div class="sobre-copy">
-                                <p>En CMR Software Solutions todo comenzó de manera natural: somos compañeros de facultad que, durante un verano, entre charlas y ganas de crear algo propio, decidimos dar el primer paso y convertir una idea en proyecto. Lo que empezó como una iniciativa entre amigos fue creciendo con esfuerzo, aprendizaje constante y una visión compartida: desarrollar soluciones tecnológicas confiables, modernas y pensadas para las necesidades reales de cada cliente.</p>
-                                <p>Hoy trabajamos en conjunto combinando nuestros conocimientos y experiencias, manteniendo siempre la cercanía y el compromiso que nos impulsó desde el inicio. Creemos en hacer las cosas bien, en generar confianza y en acompañar cada proyecto con responsabilidad, desde la primera idea hasta su implementación. Porque sabemos que el crecimiento no es casualidad, sino el resultado de trabajo en equipo, dedicación y la convicción de que incluso una idea nacida en un verano puede transformarse en algo grande.</p>
+                                <p class="sobre-copy-texto">En CMR Software Solutions todo comenzó de manera natural: somos compañeros de facultad que, durante un verano, entre charlas y ganas de crear algo propio, decidimos dar el primer paso y convertir una idea en proyecto. Lo que empezó como una iniciativa entre amigos fue creciendo con esfuerzo, aprendizaje constante y una visión compartida: desarrollar soluciones tecnológicas confiables, modernas y pensadas para las necesidades reales de cada cliente.</p>
+                                <p class="sobre-copy-texto">Hoy trabajamos en conjunto combinando nuestros conocimientos y experiencias, manteniendo siempre la cercanía y el compromiso que nos impulsó desde el inicio. Creemos en hacer las cosas bien, en generar confianza y en acompañar cada proyecto con responsabilidad, desde la primera idea hasta su implementación. Porque sabemos que el crecimiento no es casualidad, sino el resultado de trabajo en equipo, dedicación y la convicción de que incluso una idea nacida en un verano puede transformarse en algo grande.</p>
                             </div>
                         </div>
                     </div>
                 </section>
 
+            </main>
+
             <footer id="footer">
                 <div class="footer-container">
 
                     <div class="footer-col">
-                        <h3><img src="IMG/logo2.png" width="300"></h3>
+                        <h3><img src="IMG/logo2.png" alt="CMR Software Solutions" width="300" height="77"></h3>
                         <p class="footer-descripcion">En CMR creamos software a medida que simplifica procesos, mejora la productividad y acompaña el crecimiento de cada negocio.</p>
                         <p class="footer-mini">• Hecho en Argentina • Soluciones a medida • Tecnología moderna</p>
                     </div>
@@ -300,14 +305,14 @@
                             <li><a href="#proyectos">Proyectos</a></li>
                             <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
                             <li><a href="asesoramiento.html">Contacto</a></li>
-                            <li><button type="button" class="btn-nav js-goto-asesoramiento">Solicitar Acesoramiento</button></li>
+                            <li><button type="button" class="btn-nav js-goto-asesoramiento">Solicitar asesoramiento</button></li>
                         </ul>
                     </div>
 
                     <div class="footer-col">
                         <h4>Contacto</h4>
                         <p>Email: cmrsoftware.sn@gmail.com</p>
-                        <p>Whatsapp: <a href="https://wa.me/5493364578599?text=Hola%20CMR%2C%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20sus%20servicios." target="_blank" rel="noopener noreferrer">+54 9 336 457-8599</a></p>
+                        <p>WhatsApp: <a href="https://wa.me/5493364578599?text=Hola%20CMR%2C%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20sus%20servicios." target="_blank" rel="noopener noreferrer">+54 9 336 457-8599</a></p>
                     </div>
 
                 </div>
